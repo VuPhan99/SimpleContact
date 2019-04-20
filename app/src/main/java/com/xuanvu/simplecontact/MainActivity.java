@@ -65,29 +65,7 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult( requestCode, resultCode, data );
-        if (requestCode == RESULT_CODE_ADD) {
-            if (data != null) {
-                ListContact.clear();
-                ListContact = db.getAllContacts();
-                initContact();
-                Toast.makeText( this, "", Toast.LENGTH_SHORT ).show();
-            }
-
-            if (requestCode == RESULT_CODE_UPDATE) {
-                if (data != null) {
-                    ListContact.clear();
-                    ListContact = db.getAllContacts();
-                    initContact();
-                    Toast.makeText( this, "", Toast.LENGTH_SHORT ).show();
-                }
-            }
-
-        }
-    }
-
+  
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -110,12 +88,5 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
         return super.onOptionsItemSelected( item );
     }
 
-    @Override
-    public void onItemClick(Contact item) {
-        Intent intent = new Intent( MainActivity.this, EditContact.class );
-        intent.putExtra( "name", item.getmFullname() );
-        intent.putExtra( "phone", item.getmMobile() );
-        intent.putExtra( "email", item.getmEmail() );
-        startActivityForResult( intent, REQUEST_CODE );
-    }
+    
 }
