@@ -45,16 +45,6 @@ public class AddContact extends AppCompatActivity {
             }
         } );
 
-        btnClose.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentClose = new Intent( AddContact.this, MainActivity.class );
-                setResult( MainActivity.REQUEST_CODE, intentClose );
-                finish();
-
-            }
-        } );
-
 
     }
 }
