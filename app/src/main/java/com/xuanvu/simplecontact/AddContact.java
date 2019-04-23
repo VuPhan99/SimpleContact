@@ -25,7 +25,6 @@ public class AddContact extends AppCompatActivity {
         btnAdd = findViewById( R.id.btnAdd );
         btnClose = findViewById( R.id.btnClose );
 
-
         myDatabase = new MyDatabase( this );
 
         btnAdd.setOnClickListener( new View.OnClickListener() {

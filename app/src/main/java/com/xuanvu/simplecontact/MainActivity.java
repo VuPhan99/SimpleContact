@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
         return super.onOptionsItemSelected( item );
     }
 
-
     @Override
     public void onItemRecyclerClicked(int postion, int actions) {
         Contact contact = ListContact.get( postion );
