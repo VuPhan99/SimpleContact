@@ -1,5 +1,5 @@
 # SimpleContact
-Name: App Contacts
+Name: App Contacts.
 Function:
   - Add new contact.
   - Edit contact.
