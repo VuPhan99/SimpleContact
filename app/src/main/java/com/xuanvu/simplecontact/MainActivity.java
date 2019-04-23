@@ -1,5 +1,6 @@
 package com.xuanvu.simplecontact;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,16 +12,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ContactAdapter.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements ContactAdapter.OnClickItemListener {
 
     public static final int REQUEST_CODE = 1;
     public static final int RESULT_CODE_ADD = 1;
-    public static int RESULT_CODE_UPDATE = 1;
+    public static int RESULT_CODE_EDIT = 1;
 
     List<Contact> ListContact;
     ContactAdapter contactAdapter;
@@ -61,11 +61,33 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager( this );
         mRecyclerView.setLayoutManager( layoutManager );
         mRecyclerView.setAdapter( contactAdapter );
-        contactAdapter.notifyDataSetChanged();
 
     }
 
-  
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult( requestCode, resultCode, data );
+        if (requestCode == RESULT_CODE_ADD) {
+            if (data != null) {
+                ListContact.clear();
+                ListContact = db.getAllContacts();
+                initContact();
+            }
+
+            if (requestCode == RESULT_CODE_EDIT) {
+                if (data != null) {
+                    ListContact.clear();
+                    ListContact = db.getAllContacts();
+                    contactAdapter.notifyDataSetChanged();
+                    initContact();
+                }
+            }
+
+        }
+    }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -88,5 +110,14 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
         return super.onOptionsItemSelected( item );
     }
 
-    
+
+    @Override
+    public void onItemRecyclerClicked(int postion, int actions) {
+        Contact contact = ListContact.get( postion );
+        /*Toast.makeText( this, " " + contact.getmId(), Toast.LENGTH_SHORT ).show();*/
+        Intent intent = new Intent( MainActivity.this, EditContact.class );
+        intent.putExtra( "Object", contact );
+        startActivityForResult( intent, REQUEST_CODE );
+
+    }
 }

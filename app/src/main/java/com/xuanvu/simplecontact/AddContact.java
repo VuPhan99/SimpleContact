@@ -1,6 +1,5 @@
 package com.xuanvu.simplecontact;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -35,12 +34,26 @@ public class AddContact extends AppCompatActivity {
 
                 contact = new Contact( name.getText().toString(), "", "", mobile.getText().toString(), email.getText().toString() );
                 if (myDatabase.addContact( contact ) != 0) {
-                    Toast.makeText( AddContact.this, "ADD SUCCESS", Toast.LENGTH_SHORT ).show();
                     Intent intentSendBack = new Intent( AddContact.this, MainActivity.class );
                     intentSendBack.putExtra( "", contact );
                     setResult( MainActivity.RESULT_CODE_ADD, intentSendBack );
+                    Toast.makeText( AddContact.this, "ADD SUCCESS", Toast.LENGTH_SHORT ).show();
                     finish();
+                } else {
+                    Toast.makeText( AddContact.this, "EDIT FAILE", Toast.LENGTH_SHORT ).show();
+
                 }
+
+            }
+        } );
+
+        btnClose.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentClose = new Intent( AddContact.this, MainActivity.class );
+                setResult( MainActivity.REQUEST_CODE, intentClose );
+                Toast.makeText( AddContact.this, "CANCEL", Toast.LENGTH_SHORT ).show();
+                finish();
 
             }
         } );

@@ -1,7 +1,6 @@
 package com.xuanvu.simplecontact;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Contact implements Serializable {
     private int mId;
@@ -10,7 +9,7 @@ public class Contact implements Serializable {
     private String mTitle;
     private String mMobile;
     private String mEmail;
-    private  String mAvatar;
+    private String mAvatar;
     private String mCreatedAt;
 
     public int getmId() {
