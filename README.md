@@ -15,8 +15,6 @@ Function:
  
  ![image](https://user-images.githubusercontent.com/37499858/56583017-c99d2e80-6602-11e9-9af2-783e0fd68335.png)
  
- ![image](https://user-images.githubusercontent.com/37499858/56583095-fb15fa00-6602-11e9-8a42-d3a1dd75c157.png)
- 
  ![image](https://user-images.githubusercontent.com/37499858/56583267-61028180-6603-11e9-86b5-91dc9438e4f7.png)
  
  ![image](https://user-images.githubusercontent.com/37499858/56583308-7c6d8c80-6603-11e9-81ae-fb1d4ec76f98.png)
