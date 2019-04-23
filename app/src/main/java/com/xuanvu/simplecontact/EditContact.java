@@ -29,7 +29,7 @@ public class EditContact extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        contact = (Contact) intent.getSerializableExtra( "Object" );
+        contact = (Contact) intent.getSerializableExtra( "contact" );
         name.setText( contact.getmFullname() );
         mobile.setText( contact.getmMobile() );
         email.setText( contact.getmEmail() );
