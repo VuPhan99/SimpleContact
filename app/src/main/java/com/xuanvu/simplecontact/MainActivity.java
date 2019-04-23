@@ -114,7 +114,6 @@ public class MainActivity extends AppCompatActivity implements ContactAdapter.On
     @Override
     public void onItemRecyclerClicked(int postion, int actions) {
         Contact contact = ListContact.get( postion );
-        /*Toast.makeText( this, " " + contact.getmId(), Toast.LENGTH_SHORT ).show();*/
         Intent intent = new Intent( MainActivity.this, EditContact.class );
         intent.putExtra( "Object", contact );
         startActivityForResult( intent, REQUEST_CODE );
